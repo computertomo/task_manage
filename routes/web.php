@@ -12,6 +12,7 @@
 */
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/tasks', 'TaskController@index');
+    Route::get('/', 'TaskController@index');
 });
 
 Auth::routes();

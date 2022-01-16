@@ -14,6 +14,6 @@ class TaskController extends Controller
      */
     public function index(Task $task)
     {
-        return $task->get();
+        return view('tasks/index')->with(['tasks'=> $task->get()]);
     }
 }

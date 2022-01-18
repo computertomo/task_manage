@@ -14,6 +14,16 @@ class TaskController extends Controller
      */
     public function index(Task $task)
     {
-        return $task->get();
+        return view('tasks/index')->with(['tasks' => $task->get()]);
+    }
+    public function create()
+    {
+    return view('tasks/create');
+    }
+    public function store(Request $request, Task $task)
+    {
+        $input = $request['task'];
+        $task->fill($input)->save();
+        return redirect('/tasks' . $task->id);
     }
 }

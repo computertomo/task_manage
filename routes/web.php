@@ -12,8 +12,9 @@
 */
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/tasks', 'TaskController@index');
+    Route::get('/tasks/create', 'TaskController@create');
+    Route::post('/tasks', 'TaskController@store');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

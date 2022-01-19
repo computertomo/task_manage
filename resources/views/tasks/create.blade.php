@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Task_MAnage</title>
+        <title>Task_Manage</title>
     </head>
     <body>
         <h1>Task_Manage</h1>

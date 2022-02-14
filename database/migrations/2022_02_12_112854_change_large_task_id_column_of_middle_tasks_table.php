@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryTable extends Migration
+class ChangeLargeTaskIdColumnOfMiddleTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('category', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('category');
-            $table->timestamps();
+        Schema::table('middle_tasks', function (Blueprint $table) {
+            $table->renameColumn('large_task_id', 'large_tasks_id'); // カラムの物理名変更
         });
     }
 
@@ -27,6 +25,8 @@ class CreateCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category');
+        Schema::table('middle_tasks', function (Blueprint $table) {
+            //
+        });
     }
 }

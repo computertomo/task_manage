@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tasks/index.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/projects/create.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/projects/index.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">

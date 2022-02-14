@@ -1,0 +1,37 @@
+    .task_calendar{
+        position: absolute;
+        left:25pt;
+        display: flex;
+    }
+    
+    .task{
+        position:relative;
+        display: flex;
+        padding: 0.5em 8em;
+        margin: 0.5em 0;
+        color: #5d627b;
+        background: white;
+        border-top: solid 5px #5d627b;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+        width: 30%;
+        }
+    .task_contents  {
+        margin: 0;
+        padding:0;
+        height::50%;
+    }
+    .task_sentence {
+    font-size: 15pt;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .task_delete{
+      position:absolute;
+      bottom:0;
+      right:0;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      border: double 5px #5d627b;
+      height:26px;
+    }

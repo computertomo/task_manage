@@ -1,0 +1,68 @@
+    .title{
+        text-align: center;
+    }
+    .large_task_box{
+        text-align:center 
+    }
+    .large_task{
+        position:relative;
+        text-align:center; 
+        color: #5d627b;
+        background: white;
+        border-top: solid 5px #5d627b;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+        width: 30%;
+    }
+    .middle_tasks  {
+       display: flex;
+       position:relative;
+       flex-wrap: wrap;
+    }
+    .middle_task {
+        display: flex;
+        margin: 0.5em 0;
+        height: fit-content;
+        width: min-content;
+        }
+    .middle_title{
+          margin: 22px;
+    }
+    .middle_task > textarea{
+        display: flex;
+        padding: 1px 3px;
+        margin: 0.5em 5px;
+        color: #5d627b;
+        background: white;
+        border-top: solid 5px #5d627b;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+        }
+    .middle_task > button{
+        height: 45px;
+        width: 50px;
+        margin: auto;
+        padding: 0px;
+        background-color: white;
+        border: double 5px #5d627b;
+        font-size: 12px;
+    }
+    .task_sentence {
+    font-size: 15pt;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    
+    .task_add {
+    height: 49px;
+    margin: 13px;
+    }
+    
+    .task_delete{
+      position:absolute;
+      bottom:0;
+      right:0;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      border: double 5px #5d627b;
+      height:26px;
+    }

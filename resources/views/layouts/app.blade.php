@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('/fullcalendar/main.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +19,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tasks/index.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/projects/create.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/projects/index.css') }}" rel="stylesheet">
+    <link href="{{ asset('/fullcalendar/main.css') }}" rel='stylesheet'>
 </head>
 <body>
     <div id="app">

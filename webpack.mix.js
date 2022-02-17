@@ -12,4 +12,8 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/css')
+   .js('resources/js/calendar.js', 'public/js')
+   .js('resources/js_calendar/core/main.js', 'public/js/core')
+   .js('resources/js_calendar/daygrid/main.js', 'public/js/daygrid')
+   .js('resources/js_calendar/interaction/main.js', 'public/js/interaction');

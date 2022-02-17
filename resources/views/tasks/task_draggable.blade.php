@@ -18,12 +18,20 @@
     font-size: 14px;
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   }
+  .secect_box{
+    display:flex;
+    align-items :center;
+    justify-content: center;
+  }
+  .fc-body{
+    font-size:15px;
+  }
   /* ドラックボックスのスタイル */
   #external-events {
     position: fixed;
     left: 20px;
     top: 70px;
-    width: 100px;
+    width: 140px;
     padding: 0 10px;
     border: 1px solid #ccc;
     background: #eee;
@@ -62,15 +70,19 @@
 </style>
 </head>
 <body>
+  <div class="secect_box">
+    <h1>タスク一覧</h1>
+    [<a href='/projects'>プロジェクト一覧</a>]
+    [<a href='/calendar'>カレンダーへ</a>]
+  </div>
   <div id='wrap'>
     <!-- ドラックボックス -->
     <div id='external-events'>
-      <h4>プロジェクト一覧</h4>
+      [<a href='/tasks/create'>タスクを作成する</a>]
+      <h4>タスク一覧</h4>
       <div id='external-events-list'>
       </div>
     </div>
-    [<a href='/'>シングルタスク一覧</a>]
-    [<a href='/projects'>プロジェクト一覧</a>]
     <!-- calendarタグ -->
     <div id='calendar-wrap'>
       <div id='calendar'></div>
@@ -95,7 +107,7 @@
       <!--ドラックイベントを追加-->
       $.ajax({
         type: "get",　
-        url:'/projects/contents',
+        url:'/tasks/contents',
         dataType: "json"
       })
       .done((res) => {
@@ -104,7 +116,7 @@
               <a class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
                 <div class='fc-event-main'>
                     <div class='fc-body'>
-                        ${value.body}
+                       ${value.body}
                     </div>
                 </div>
               </a>
@@ -124,13 +136,18 @@
         },
         initialView: 'timeGridWeek',
         locale: 'ja', // 日本語設定
+        events: "/setEvents",
         editable: true, // 修正可能
         droppable: true,  // ドラック可能
         drop: function(arg) { // ドラッグアンドドロップが成功する場合
           // ドラックボックスでイベントを削除する。
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
+        
+        
+        
       });
+      <!--ここまでが第二引数（プラグイン：カレンダーの機能）-->
       // カレンダーレンダリング
       calendar.render();
     });
@@ -138,3 +155,53 @@
 </script>
 </body>
 </html>
+
+
+<!--function addEvent(calendar,info){-->
+
+<!--    // タイトルの値を受け取る処理は、説明を簡潔にするために割愛し、適当な値を与えておきます-->
+<!--    var title = "サンプルイベント";-->
+
+<!--    $.ajax({-->
+<!--        url: '/ajax/addEvent',-->
+<!--        type: 'POST',-->
+<!--        dataTape: 'json',-->
+<!--        data:{-->
+<!--            "title":title,-->
+<!--            // 日程取得-->
+<!--            "date":info.dateStr-->
+
+<!--        }-->
+<!--    }).done(function(result) {-->
+<!--        // Ajaxに成功したらフロント側にeventを追加で表示-->
+<!--        calendar.addEvent({-->
+<!--            // PHP側から受け取ったevent_idをeventObjectのidにセット-->
+<!--            id:result['event_id'],-->
+<!--            title:title,-->
+<!--            start: info.dateStr,-->
+<!--        });-->
+<!--    });-->
+<!--}-->
+
+<!--function editEventDate(info){-->
+<!--    var event_id = info.event.id;-->
+<!--    //ドロップしたあとの日付-->
+<!--    var date = formatDate(info.event.start);-->
+
+<!--    $.ajax({-->
+<!--        url: '/ajax/editEventDate',-->
+<!--        type: 'POST',-->
+<!--        data:{-->
+<!--            "id":event_id,-->
+<!--            "newDate":date-->
+<!--        }-->
+<!--    })-->
+<!--}-->
+
+<!--function formatDate(date) {-->
+<!--    var year = date.getFullYear();-->
+<!--    var month = date.getMonth() + 1;-->
+<!--    var day = date.getDate();-->
+<!--    var newDate = year + '-' + month + '-' + day;-->
+<!--    return newDate;-->
+<!--}-->

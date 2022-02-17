@@ -18,7 +18,7 @@ class LargeTask extends Model
     
     public function middle_tasks()   
     {
-        return $this->hasMany('App\Middle_tasks');  
+        return $this->hasMany('App\MiddleTask');  
     }
     public function getPaginateByLimit(int $limit_count = 30)
     {

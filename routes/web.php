@@ -14,6 +14,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/', 'TaskController@index');
     Route::get('/tasks', 'TaskController@show');
     Route::get('/tasks/create', 'TaskController@create');
+    Route::get('/tasks/contents', 'CalendarController@res_tasks_data');
     Route::get('/tasks/{task}', 'TaskController@show');
     Route::get('/tasks/{task}/edit', 'TaskController@edit');
     Route::put('/tasks/{task}', 'TaskController@update');
@@ -27,8 +28,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::delete('/projects/middle_task/delete/{middle_task}','ProjectController@m_delete');
     Route::delete('/projects/large_task/delete/{large_task}','ProjectController@l_delete');
     Route::get('/calendar', 'CalendarController@show');
-    Route::get('/projects/{large_tasks}', 'Large_tasksController@index');
-    Route::get('/projects/contents', 'CalendarController@res_data');
+    Route::get('/projects/contents', 'CalendarController@res_projects_data');
+    Route::get('/setEvents', 'CalendarController@setEvents');
+    Route::get('/projects/{large_tasks}', 'LargeTaskController@index');
+    
 });
 
 Auth::routes();

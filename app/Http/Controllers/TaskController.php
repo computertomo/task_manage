@@ -16,7 +16,7 @@ class TaskController extends Controller
      */
     public function index(Task $task)
     {
-        return view('tasks/index')->with(['tasks' => $task->getPaginateByLimit()]);
+        return view('tasks/task_draggable')->with(['tasks' => $task->getPaginateByLimit()]);
     }
     /**特定IDのtaskを表示する
      * 
@@ -25,7 +25,6 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        dd($task);
         return view('tasks/show')->with(['task'=>$task]);
     }
     public function create(Category $category)

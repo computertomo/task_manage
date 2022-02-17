@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 use App\Task;
 use App\LargeTask;
-use App\Middle_tasks;
-use App\Small_tasks;
+use App\MiddleTask;
+use App\SmallTask;
 use Illuminate\Http\Request;
 use App\Category;
 use Carbon\Carbon;
@@ -31,15 +31,15 @@ class ProjectController extends Controller
         return view('projects/index')->with(['large_tasks' => $large_task->getPaginateByLimit()]);
     }
 
-    public function show(LargeTask $large_task, Middle_tasks $middle_task)
+    public function show(LargeTask $large_task, MiddleTask $middle_task)
     {
         return view('projects/show')->with(['project_content'=>$large_task])->with(['project_content'=>$middle_task]);
     }
-    public function create(LargeTask $large_task,Middle_tasks $middle_task)
+    public function create(LargeTask $large_task,MiddleTask $middle_task)
     {
         return view('projects/create')->with(['large_tasks' => $large_task->get()]);;
     }
-    public function store(Request $request, LargeTask $large_task,Middle_tasks $middle_task)
+    public function store(Request $request, LargeTask $large_task,MiddleTask $middle_task)
     {
         // 大目標の保存
         $l_input = $request['large_task'];
@@ -47,9 +47,9 @@ class ProjectController extends Controller
         // 中目標の保存
         $m_input = $request['m_task'];
         foreach($m_input["index"] as $m_task){
-            $middle_task = new Middle_tasks();
+            $middle_task = new MiddleTask();
             $middle_task->body=$m_task; // ここが入力された値
-            $middle_task->large_tasks_id = $large_task->id;
+            $middle_task->large_task_id = $large_task->id;
             $middle_task->save();
         }
         return redirect('/projects');
@@ -69,7 +69,7 @@ class ProjectController extends Controller
         $large_task->delete();
         return redirect('/projects');
     }
-    public function m_delete(Middle_tasks $middle_task)
+    public function m_delete(MiddleTask $middle_task)
     {
         $middle_task->delete();
         return redirect('/projects');

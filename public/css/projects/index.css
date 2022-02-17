@@ -1,0 +1,70 @@
+    .middle_project_sentence > a{
+        font-size: 15pt;
+        color:blue;
+    }
+    .task_calendar{
+        position: absolute;
+        left:25pt;
+        display: flex;
+    }
+    .project_box{
+        position:relative;
+        margin: 0.5em 7px;
+        padding: inherit;
+        color: #5d627b;
+        background: #c9dbf6;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+        width: 35%;
+        }
+    .large_project{
+        position:relative;
+        text-align:center; 
+    }
+    .large_project_sentence {
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: bold;
+        }
+    .large_project_sentence > a{
+        font-size: 15pt;
+        color:black;
+    }
+    .middle_project {
+        position: relative;
+        padding: 0.5em 8em;
+        color: #5d627b;
+        background: white;
+        border-top: solid 5px #5d627b;
+        box-shadow: 0 3px 5px rgb(0 0 0 / 22%);
+        width: 70%;
+    }
+    .middle_project_contents  {
+        margin: 0;
+        padding:0;
+        height:50%;
+    }
+    .middle_project_sentence {
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    .l_delete{
+      position:absolute;
+      bottom:0;
+      right:0;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      border: double 5px #5d627b;
+      height:26px;
+    }
+    .task_delete{
+      position:absolute;
+      bottom:0;
+      right:0;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      border: double 5px #5d627b;
+      height:26px;
+    }
